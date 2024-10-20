@@ -15,11 +15,11 @@ learning_rate = 3e-4
 batch_size = 32
 
 class Encoder(nn.Module):
-    def __init__(self,input_dim,hidden_dim,output_dim):
+    def __init__(self,input_dim,hidden_dim,latent_dim):
         super().__init__()
         self.linear = nn.Linear(input_dim,hidden_dim)
         self.linear_mu = nn.Linear(hidden_dim,latent_dim)
-        self.linear_logvar = nn.Linear(hidden_dim,output_dim)
+        self.linear_logvar = nn.Linear(hidden_dim,latent_dim)
     
     def forward(self,x):
         h = self.linear(x)
